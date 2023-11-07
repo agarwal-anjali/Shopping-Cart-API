@@ -1,0 +1,16 @@
+{
+  "development": {
+    "dialect": "sqlite",
+    "storage": "database.sqlite"
+  },
+  "test": {
+    "dialect": "sqlite",
+    "storage": "test_database.sqlite"
+  },
+  "production": {
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "sqlite",
+    "storage": "production_database.sqlite"
+  }
+}
