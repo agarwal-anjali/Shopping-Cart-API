@@ -5,11 +5,6 @@
   "type": "commonjs",
   "main": "dist/app.js",
   "scripts": {
-    "seqinit": "npx sequelize init",
-    "seqproduct": "npx sequelize model:generate --name Product --attributes name:string,description:string,price:float",
-    "seqcart": "npx sequelize model:generate --name Cart --attributes userId:integer,productId:integer,quantity:integer",
-    "seqmigdev": "npx sequelize db:migrate --env development",
-    "seqmigtest": "npx sequelize db:migrate --env test",
     "compile": "tsc",
     "start": "node dist/app.js",
     "testAdminAPI": "set NODE_ENV=test && mocha --require ts-node/register src/test/adminRoutes.test.ts",
