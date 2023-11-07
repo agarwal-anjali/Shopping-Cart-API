@@ -15,7 +15,8 @@ app.listen(PORT, () => {
 
 // Handle Ctrl+C (SIGINT) signal
 process.on('SIGINT', () => {
-  console.log('Terminating server (Ctrl+C)');
+  console.log('User is terminating server (Ctrl+C)');
+  process.exit(0); // Exit the application gracefully
 });
 
 export default app;
