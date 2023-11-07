@@ -1,8 +1,22 @@
 # Dependency directories
-node_modules/
+node_modules
 
 # Environment variables
 .env
 
 # Build artifacts
-dist/
+dist
+
+# Migration files
+migrations/*
+
+# Models
+models/product.js
+models/cart.js
+
+# Seeders
+seeders/*
+
+# Databases
+database.sqlite
+test_database.sqlite
