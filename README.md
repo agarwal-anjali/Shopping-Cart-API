@@ -34,7 +34,7 @@ To build the application, follow these steps:
 1. Build the docker container
 
    ```bash
-   docker build -t shopping-cart-api
+   docker build -t shopping-cart-api .
 
 2. Run the application
    
