@@ -3,29 +3,25 @@ import Cart from '../models/cart';
 import Product from '../models/product';
 
 class UserController {
-  // Add a product to the user's cart
+
+  // Add a product to the cart
   async addToCart(req: Request, res: Response) {
     try {
       const {productId, quantity } = req.body;
       const cartItem = await Cart.create({ productId, quantity });
       res.status(201).json(cartItem);
     } catch (error) {
-      console.log('Error adding product', error);
-      // res.status(500).json({ error: 'Internal Server Error' });
+      res.status(500).json({ error: 'Internal Server Error' });
     }
   }
 
-  // Update the quantity of a product in the user's cart
+  // Update the quantity of a product in cart
   async updateCartItem(req: Request, res: Response) {
     try {
       const cartItemId = req.params.cartItemId;
       const { quantity } = req.body;
 
-      console.log('cartItemId:', cartItemId);
-
       const cartItem = await Cart.findOne({where: {id : cartItemId}});
-
-      console.log('cartItem:',cartItem);
 
       if (!cartItem) {
         return res.status(404).json({ error: 'Cart item not found' });
@@ -40,7 +36,7 @@ class UserController {
     }
   }
 
-  // Remove a product from the user's cart
+  // Remove a product from the cart
   async removeFromCart(req: Request, res: Response) {
     try {
       const cartItemId = req.params.cartItemId;
@@ -58,7 +54,7 @@ class UserController {
     }
   }
 
-  // View the user's cart
+  // View the items in cart
   async viewCart(req: Request, res: Response) {
     try {
       const cartItems = await Cart.findAll();
@@ -69,7 +65,7 @@ class UserController {
     }
   }
 
-  // Get the total price of the user's cart
+  // Get the total price of the products in the cart
   async getTotalPrice(req: Request, res: Response) {
     try {
       const cartItems = await Cart.findAll();

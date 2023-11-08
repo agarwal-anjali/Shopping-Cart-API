@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import Product from '../models/product';
 
 class AdminController {
+  
   // Add a product to the catalogue
   async addProduct(req: Request, res: Response) {
     try {
@@ -9,8 +10,7 @@ class AdminController {
       const product = await Product.create({ name, description, price });
       res.status(201).json(product);
     } catch (error) {
-      console.log('Error adding product', error);
-    //   res.status(500).json({ error: 'Internal Server Error' });
+      res.status(500).json({ error: 'Internal Server Error' });
     }
   }
 

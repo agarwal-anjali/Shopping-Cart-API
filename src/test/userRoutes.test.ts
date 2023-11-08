@@ -1,6 +1,6 @@
 import * as chai from 'chai';
 import supertest from 'supertest';
-import app from '../app'; // Import your Express app
+import app from '../app';
 
 const expect = chai.expect;
 const request = supertest(app);
@@ -28,7 +28,6 @@ describe('API Endpoints', () => {
       .end((err, res) => {
         expect(res.status).to.equal(201);
         productAdded = res.body.id;
-        // You may want to check if the product is actually added in the database
         done();
       });
   });
@@ -42,7 +41,6 @@ describe('API Endpoints', () => {
         expect(res.body).to.have.property('productId').equal(productAdded);
         expect(res.body).to.have.property('quantity').equal(2);
         productAddedToCart = res.body.id;
-        console.log(productAddedToCart);
         done();
       });
   });
@@ -55,7 +53,6 @@ describe('API Endpoints', () => {
         expect(res.status).to.equal(200);
         expect(res.body).to.have.property('productId').to.equal(productAdded);
         expect(res.body).to.have.property('quantity').to.equal(3);
-        // You may want to check if the cart item is updated in the database
         done();
       });
   });
@@ -87,7 +84,6 @@ describe('API Endpoints', () => {
       .end((err, res) => {
         expect(res.status).to.equal(200);
         expect(res.body).to.have.property('totalPrice').to.equal(0);
-        // Add assertions to check the response for the total price
         done();
       });
   });
