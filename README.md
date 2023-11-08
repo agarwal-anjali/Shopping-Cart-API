@@ -34,7 +34,7 @@ To build the application, follow these steps:
 1. Build the docker container
 
    ```bash
-   docker build -t shopping-cart-api
+   docker build -t shopping-cart-api .
 
 2. Run the application
    
@@ -53,7 +53,7 @@ Use the following commands to use the API
 | `GET/api/admin/products`    | View list of all products|
 | `POST/api/admin/products/add`     | Post a new product |     
 | `POST/api/admin/products/update/:productId`| Update details of a particular product. |    
-| `DELETE/api/admin/products/:productId`|Delete a particular product |
+| `DELETE/api/admin/products/delete/:productId`|Delete a particular product |
 
 ### User Routes
 | Routes        | Description           | 
