@@ -1,15 +1,21 @@
-import { Sequelize } from 'sequelize';
+import { Options, Sequelize } from 'sequelize';
 
 const environment = process.env.NODE_ENV? 'test' :'development';
 
-const config = require('../../src/config/config.json')[environment];
+let config: Options;
+
+if(environment === 'development') {
+  config = {
+    dialect: 'sqlite',
+    storage: 'database.sqlite'
+  }
+} else {
+  config = {
+    dialect: 'sqlite',
+    storage: 'test_database.sqlite'
+  }
+}
 
 const sequelize = new Sequelize(config);
-
-sequelize.sync().then(() => {
-  console.log('Database connection synchronized');
-}).catch((error) => {
-  console.error('Database synchronization error:', error);
-});
 
 export { sequelize };

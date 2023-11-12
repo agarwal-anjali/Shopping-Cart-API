@@ -1,9 +1,16 @@
 import express from 'express';
 import userRouter from './routes/userRoutes';
 import adminRouter from './routes/adminRoutes';
+import { sequelize } from './config/database';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+sequelize.sync().then(() => {
+  console.log('Database connection synchronized');
+}).catch((error) => {
+  console.error('Database synchronization error:', error);
+});
 
 app.use(express.json());
 app.use('/api', userRouter);

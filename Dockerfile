@@ -15,11 +15,5 @@ RUN npm install
 # Copy the rest of the application source code to the container
 COPY . .
 
-# Run your custom npm scripts before starting the API
-RUN npm run compile
-
 # Expose the port that your API will listen on
 EXPOSE 3000
-
-# Define the command to start your API
-CMD ["npm", "start"]

@@ -1,10 +1,10 @@
 import * as chai from 'chai';
 import supertest from 'supertest';
 import app from '../app';
+import { sequelize } from '../config/database';
 
 const expect = chai.expect;
 const request = supertest(app);
-import { sequelize } from '../config/database';
 
 describe('API Endpoints', () => {
   // Re-create the test database
@@ -14,7 +14,6 @@ describe('API Endpoints', () => {
 
   // Final cleanup by closing the connection
   after(() => {
-    
     return sequelize.close();
   });
 
